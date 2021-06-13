@@ -35,6 +35,7 @@ bower_components
 build/Release
 
 # Dependency directories
+node_modules
 node_modules/
 jspm_packages/
 
@@ -88,5 +89,3 @@ sw.*
 
 # Vim swap files
 *.swp
-
-node_modules
