@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -10,10 +11,21 @@ var notesRouter = require('./routes/notes');
 
 var app = express();
 
+/* app.use(function(req, res,) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header('Access-Control-Request-Method', 'http://localhost:3000');
+}); */
+
+app.get('/', (req, res) => {
+  req.header('Access-Control-Allow-Origin', 'http://localhost:3000')
+  req.header('Access-Control-Request-Method', 'http://localhost:3000')
+});
+
+
 //Setting up mongoose selection
 var mongoose = require('mongoose');
 // ADD MONGODB LINK HERE BEFORE THIS APP CAN WORK
-var mongoDB = '';
+var mongoDB = 'mongodb+srv://admin:admin@planercluster.hbobd.mongodb.net/planer_db?retryWrites=true&w=majority';
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
