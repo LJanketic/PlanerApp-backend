@@ -1,20 +1,30 @@
 var createError = require('http-errors');
 var express = require('express');
-var cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+var app = express();
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var notesRouter = require('./routes/notes');
+var authRouter = require('./routes/auth');
 
-var app = express();
-
-/* app.use(function(req, res,) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header('Access-Control-Request-Method', 'http://localhost:3000');
-}); */
+const cors = require('cors');
+const allowedOrigins = ['http://localhost:3000']
+  app.use(cors({
+    origin: function (origin, callback) { // allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true)
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = 'The CORS policy for this site does not ' +
+          'allow access from the specified Origin.'
+        return callback(new Error(msg), false)
+      }
+      return callback(null, true)
+    },
+    credentials: true
+  }))
 
 app.get('/', (req, res) => {
   req.header('Access-Control-Allow-Origin', 'http://localhost:3000')
@@ -45,6 +55,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/notes', notesRouter);
+app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,7 +1,7 @@
-var authMethods = require('../methods/auth');
+var authMethods = require('../methods/authMethods');
 
 module.exports.login = async (req, res) => {
-    console.log('login: ', req.body)
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!login: ', req.body)
     const credentials = req.body
     try {
       const response = await authMethods.login(credentials)

@@ -8,12 +8,12 @@ var UserSchema = new Schema(
     }
 );
 
-UserSchema.virtual('name').get(() => {
+/* UserSchema.virtual('name').get(() => {
     return this.username;
 });
 
 UserSchema.virtual('url').get(() => {
     return '/catalog/user/' + this._id
-});
+}); */
 
 module.exports = mongoose.model('User', UserSchema);
