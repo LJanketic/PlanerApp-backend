@@ -3,8 +3,9 @@ var Schema = mongoose.Schema;
 
 var UserSchema = new Schema(
     {
-        username: {type: String, required: true, maxLength: 20},
-        password: {type: String, reuqired: true, maxlength: 50}
+        firstName: {type: String, required: true},
+        username: {type: String, required: true},
+        password: {type: String, required: true}
     }
 );
 

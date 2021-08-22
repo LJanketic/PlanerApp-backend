@@ -1,9 +1,10 @@
-const User = require('../models/user')
+var User = require('../models/user')
 const bcrypt = require('bcryptjs')
 
 module.exports.signup = async (user) => {
   const hash = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10)) // hash and salt
   const newUser = new User({
+    firstName: user.firstName,
     username: user.username,
     password: hash
   })

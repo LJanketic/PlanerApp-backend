@@ -1,12 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var AuthController = require('../controllers/authController');
+var auth_controller = require('../controllers/authController');
 
-router.post('/login', AuthController.login);
-router.post('/refresh', AuthController.refresh);
-router.get('/user', AuthController.getUser);
-router.post('/logout', AuthController.logout);
-router.get('/jaje', () => {res.send('jaje')})
+router.post('/login', auth_controller.login);
+router.post('/refresh', auth_controller.refresh);
+router.get('/user', auth_controller.getUser);
+router.post('/logout', auth_controller.logout);
 
 module.exports = router;

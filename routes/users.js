@@ -5,13 +5,7 @@ var user_controller = require('../controllers/userController');
 
 
 router.get('/', user_controller.user_list);
-router.post('/create', user_controller.user_create_post);
-
-/* router.get('/user/create', user_controller.user_create_get);
-router.get('/user/:id/delete', user_controller.user_delete_get);
-router.post('/user/:id/delete', user_controller.user_delete_post);
-router.get('/user/:id/update', user_controller.user_update_get);
-router.post('/user/:id/update', user_controller.user_update_post);
-router.get('/user/:id', user_controller.user_detail); */
+router.post('/register', user_controller.signup);
+router.post('/checkUsername', user_controller.checkUsername);
 
 module.exports = router;
