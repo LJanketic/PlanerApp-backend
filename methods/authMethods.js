@@ -6,8 +6,6 @@ const refreshTokens = {}
 module.exports.login = async (credentials) => {
     try {
       const user = await User.findOne({ username: credentials.username })
-      console.log('?????????????????????????????????????', user)
-      console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', credentials)
       if (user) {
         if (bcrypt.compareSync(credentials.password, user.password)) { // compare passwords
           const expiresIn = 36000

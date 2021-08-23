@@ -2,7 +2,7 @@ var authMethods = require('../methods/authMethods');
 
 module.exports.login = async (req, res) => {
     const credentials = req.body
-    // console.log('?????????????????????????????????????????????????????? ', credentials)
+    console.log('credentials', credentials)
     try {
       const response = await authMethods.login(credentials)
       return res.status(200).send(response)
@@ -35,8 +35,8 @@ module.exports.login = async (req, res) => {
   }
   
   module.exports.getUser = async (req, res) => {
-    // console.log('getUser: ', req.user)
-    const user = req.user
+    const user = req.data
+    console.log('user', user)
     try {
       const response = await authMethods.getUser(user)
       return res.status(200).send(response)

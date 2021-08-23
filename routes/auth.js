@@ -5,7 +5,7 @@ var auth_controller = require('../controllers/authController');
 
 router.post('/login', auth_controller.login);
 router.post('/refresh', auth_controller.refresh);
-router.get('/user', auth_controller.getUser);
+router.get('/', auth_controller.getUser);
 router.post('/logout', auth_controller.logout);
 
 module.exports = router;
