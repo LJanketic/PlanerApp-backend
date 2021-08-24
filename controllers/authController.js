@@ -35,8 +35,8 @@ module.exports.login = async (req, res) => {
   }
   
   module.exports.getUser = async (req, res) => {
-    const user = req.data
-    console.log('user', user)
+    const user = req.headers.authorization
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!', user)
     try {
       const response = await authMethods.getUser(user)
       return res.status(200).send(response)

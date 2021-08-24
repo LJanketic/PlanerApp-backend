@@ -51,10 +51,10 @@ module.exports.login = async (credentials) => {
     }
   }
   
-  module.exports.getUser = async (user) => {
-    const reqUser = user
+  module.exports.getUser = async (authHeaders) => {
+    var decoded = jsonwebtoken.verify(authHeaders.slice(7), 'dummy');
     try {
-      const user = await User.findOne({ _id: reqUser.user }).select('_id username')
+      const user = await User.findOne({ _id: decoded.user }).select('_id username')
       return { user: user }
     } catch (error) {
       console.error(error)
