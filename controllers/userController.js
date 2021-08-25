@@ -12,7 +12,7 @@ exports.user_list = async function(req, res) {
 };
 
 exports.signup = async (req, res) => {
-    // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!signup: ', req.body)
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!signup: ', req.headers)
     const newUser = req.body
     try {
       if (newUser.password === newUser.passwordMatch) {
