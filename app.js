@@ -6,11 +6,11 @@ var logger = require('morgan');
 
 var app = express();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var notesRouter = require('./routes/notes');
-var authRouter = require('./routes/auth');
 
+/**
+ * CORS
+ * 
+ */
 const cors = require('cors');
 const allowedOrigins = ['http://localhost:3000']
   app.use(cors({
@@ -27,6 +27,7 @@ const allowedOrigins = ['http://localhost:3000']
   }))
 
 
+
 //Setting up mongoose selection
 var mongoose = require('mongoose');
 // ADD MONGODB LINK HERE BEFORE THIS APP CAN WORK
@@ -37,27 +38,74 @@ var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error'));
 
-// view engine setup
+/**
+ * View engine setup
+ * 
+ */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(logger('dev'));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
+/**
+ * Logger init
+ * 
+ */
+ app.use(logger('dev'));
+
+/**
+ * Json parser
+ * 
+ */
+ app.use(express.json());
+
+/**
+ * URL encoding
+ * 
+ */
+
+app.use(express.urlencoded({ extended: true }));
+
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var notesRouter = require('./routes/notes');
+var authRouter = require('./routes/auth');
+
+/**
+ * Cookie parser
+ * 
+ */
+
 app.use(cookieParser());
+
+/**
+ * Serving static files to express
+ * 
+ */
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/**
+ * Routes
+ * 
+ */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/notes', notesRouter);
 app.use('/auth', authRouter);
 
-// catch 404 and forward to error handler
+/**
+ * Error handling
+ * 
+ * catch 404 and forward to error handler
+ * 
+ */
 app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+/**
+ * Error handler
+ * 
+ */
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
