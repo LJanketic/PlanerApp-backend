@@ -30,7 +30,7 @@ exports.note_create_post = async function(req, res) {
 };
 
 
-exports.note_detail = function(req, res) {
+/* exports.note_detail = function(req, res) {
     res.send('NOT IMPLEMENTED: note detail: ' + req.params.id);
 };
 
@@ -53,4 +53,4 @@ exports.note_update_get = function(req, res) {
 exports.note_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: note update POST');
 };
-
+ */

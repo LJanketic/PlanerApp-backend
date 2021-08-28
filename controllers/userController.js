@@ -27,7 +27,6 @@ exports.signup = async (req, res) => {
   }
   
   exports.checkUsername = async (req, res) => {
-    console.log('req: ', req.body.usernameToCheck)
     const username = req.body.usernameToCheck
     try {
       const response = await userMethods.checkUsername(username)

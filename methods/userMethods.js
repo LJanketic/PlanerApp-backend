@@ -20,8 +20,10 @@ module.exports.checkUsername = async (username) => {
   try {
     const user = await User.findOne({ username: username })
     if (user) {
+      console.log('\nUsername je zauzet!\n')
       return false
     } else {
+      console.log('\nUsername je slobodan!\n')
       return true
     }
   } catch (error) {
