@@ -17,4 +17,14 @@ module.exports.createNote = async (noteData) => {
     } catch (error) {
         console.error(error)
     }
+};
+
+module.exports.deleteNote = async (noteData) => {
+    const myQuery = { user: noteData.user, title: noteData.title, date: noteData.date, description: noteData.description }
+    try {
+        await Note.deleteOne(myQuery)
+        return 'DELETE OK'
+    } catch (error) {
+        console.error(error)
+    }
 }
