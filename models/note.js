@@ -1,18 +1,30 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
+
+const schemaOptions = {
+    timestamps: true,
+    toObject: {
+      virtuals: true
+    },
+    toJSON: {
+      virtuals: true
+    },
+    minimize: false
+}
 
 var NoteSchema = new Schema(
     {
+        user: {type: String, ref: 'User',  required: true},
         title: {type: String, required: true},
-        user: {type: Schema.Types.ObjectId, ref: 'User',  required: true},
-        date_created: {type: Date, default: Date.now},
-        status: {type: String, required: true, enum: ['In progress', 'Finished', 'Yet to happen'], default: 'Yet to happen'}
-    }
-)
+        place: {type: String,  required: true},
+        status: {type: String, required: true},
+        date: {type: String, required: true},
+        priority: {type: String, required: true},
+        nature: {type: String, required: true},
+        description: {type: String, required: true}
+    },
+    schemaOptions
+);
 
-NoteSchema.virtual('url').get(() => {
-    return '/catalog/noteinstance/' + this._id
-});
-
-module.exports = mongoose.model('Note', NoteSchema);
+const Note = mongoose.model('Note', NoteSchema)
+module.exports = Note

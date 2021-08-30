@@ -4,8 +4,8 @@ var router = express.Router();
 
 var note_controller = require('../controllers/noteController');
 
-router.get('/', note_controller.note_list);
-router.post('/create', note_controller.note_create_post);
+router.get('/', note_controller.noteList);
+router.post('/create', note_controller.createNote);
 
 /* router.get('/note/create', note_controller.note_create_get);
 router.get('/note/:id/delete', note_controller.note_delete_get);

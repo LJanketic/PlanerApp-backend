@@ -1,10 +1,11 @@
 var Note = require('../models/note');
+const noteMethods = require('../methods/noteMethods')
 
 exports.index = function(req, res) {
     res.send('NOT IMPLEMENTED: Site Home Page');
 };
 
-exports.note_list = async function(req, res) {
+exports.noteList = async function(req, res) {
     try {
         const response = await Note.find()/* .populate("user")  inner join za mongo*/;
         return res.status(200).send(response);
@@ -14,14 +15,9 @@ exports.note_list = async function(req, res) {
     }
 };
 
-exports.note_create_post = async function(req, res) {
+exports.createNote = async function(req, res) {
     try {
-        const newNote = new Note({
-            title: req.body.title,
-            user: req.body.user,
-            status: req.body.status
-        })
-        const response = await newNote.save();
+        const response = await noteMethods.createNote(req.body);
         return res.status(200).send(response);
     } catch (error) {
         console.error('GET ALL USERS - ADMIN ERROR: ', error);
