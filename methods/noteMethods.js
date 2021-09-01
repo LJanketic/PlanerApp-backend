@@ -29,12 +29,12 @@ module.exports.deleteNote = async (noteData) => {
     }
 };
 
-/* module.exports.updateNote = async (noteData) => {
-    const myQuery = {}
-    const newValues = {}
+module.exports.updateNote = async (noteData) => {
+    const myQuery = { user: noteData.user, title: noteData.titleToCheck, date: noteData.dateToCheck, description: noteData.descriptionToCheck }
+    const newValues = { $set: { user: noteData.user, title: noteData.title, place: noteData.place, status: noteData.status, date: noteData.date, priority: noteData.priority, nature: noteData.nature, description: noteData.description } }
     try {
-
+        await Note.updateOne(myQuery, newValues)
     } catch (error) {
         console.error(error)
     }
-} */
+}

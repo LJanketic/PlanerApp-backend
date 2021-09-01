@@ -33,7 +33,7 @@ exports.deleteNote = async function(req, res) {
     }
 }
 
-/* exports.updateRole = async function(req, res) {
+exports.updateRole = async function(req, res) {
     try {
         const response = await noteMethods.updateNote(req.body);
         return res.status();
@@ -41,4 +41,4 @@ exports.deleteNote = async function(req, res) {
         console.error('UPDATE ROLE ERROR: ', error);
         return res.status(500).send(error);
     }
-} */
+}

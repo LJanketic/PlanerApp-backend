@@ -13,8 +13,9 @@ exports.user_list = async function(req, res) {
 
 exports.signup = async (req, res) => {
     const newUser = req.body
+    console.log('!!!!!!!!!!!!', req.body)
     try {
-      if (newUser.password === newUser.pwdConfirm) {
+      if (newUser.password === newUser.passwordConfirm) {
         const response = await userMethods.signup(newUser)
         return res.status(200).send(response)
       } else {
