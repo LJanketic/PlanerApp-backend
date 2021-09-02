@@ -23,8 +23,6 @@ exports.createNote = async function(req, res) {
 
 exports.deleteNote = async function(req, res) {
     try {
-        // Sljedeca linija je samo za testiranje requesta sa frontenda
-        // console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!', req.body)
         const response = await noteMethods.deleteNote(req.body);
         return res.status(200).send(response);
     } catch (error) {
@@ -36,7 +34,7 @@ exports.deleteNote = async function(req, res) {
 exports.updateNote = async function(req, res) {
     try {
         const response = await noteMethods.updateNote(req.body);
-        return res.status();
+        return res.status(200).send(response);
     } catch (error) {
         console.error('UPDATE ROLE ERROR: ', error);
         return res.status(500).send(error);
