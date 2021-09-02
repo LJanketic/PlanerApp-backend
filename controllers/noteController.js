@@ -33,7 +33,7 @@ exports.deleteNote = async function(req, res) {
     }
 }
 
-exports.updateRole = async function(req, res) {
+exports.updateNote = async function(req, res) {
     try {
         const response = await noteMethods.updateNote(req.body);
         return res.status();
