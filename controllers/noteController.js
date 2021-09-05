@@ -1,5 +1,5 @@
 var Note = require('../models/note');
-const noteMethods = require('../methods/noteMethods')
+const noteMethods = require('../methods/noteMethods');
 
 exports.noteList = async function(req, res) {
     try {
