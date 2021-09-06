@@ -1,11 +1,23 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var ImportanceSchema = new Schema(
+const schemaOptions = {
+    timestamps: true,
+    toObject: {
+      virtuals: true
+    },
+    toJSON: {
+      virtuals: true
+    },
+    minimize: false
+};
+
+const ImportanceSchema = new Schema(
     {
         priority: {type: String, required: true}
-    }
+    },
+    schemaOptions
 );
 
-const Duration = mongoose.model('Importance', ImportanceSchema);
+const Importance = mongoose.model('Importance', ImportanceSchema);
 module.exports = Importance;

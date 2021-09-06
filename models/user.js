@@ -10,7 +10,7 @@ const schemaOptions = {
       virtuals: true
     },
     minimize: false
-}
+};
 
 const UserSchema = new Schema(
     {
@@ -21,5 +21,5 @@ const UserSchema = new Schema(
     schemaOptions
 );
 
-const User = mongoose.model('User', UserSchema)
-module.exports = User
+const User = mongoose.model('User', UserSchema);
+module.exports = User;

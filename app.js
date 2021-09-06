@@ -68,7 +68,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var notesRouter = require('./routes/notes');
 var authRouter = require('./routes/auth');
-var inforouter = require('./routes/info');
+var infoRouter = require('./routes/info');
 
 /**
  * Cookie parser
@@ -92,7 +92,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/notes', notesRouter);
 app.use('/auth', authRouter);
-app.use('/info', inforouter);
+app.use('/info', infoRouter);
 
 /**
  * Error handling
