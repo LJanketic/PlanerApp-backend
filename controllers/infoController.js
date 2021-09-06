@@ -12,7 +12,7 @@ exports.durationList = async function (req, res) {
         return res.status(500).send(error);
     }
 };
-
+// MADE PUERLY FOR PURPOUSES OF FINDING OUT WHY I HAVE BRAIN DAMAGE
 exports.durationInsert = async function (req, res) {
     try {
         const response = await infoMethods.createDuration(req.body);
