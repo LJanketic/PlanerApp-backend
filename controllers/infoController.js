@@ -2,6 +2,7 @@ const infoMethods = require('../methods/infoMethods');
 var Duration = require ('../models/duration');
 var Importance = require ('../models/importance');
 var Nature = require ('../models/nature');
+var Place = require ('../models/place');
 
 exports.durationList = async function (req, res) {
     try {
@@ -39,6 +40,16 @@ exports.natureList = async function (req, res) {
         return res.status(200).send(response);
     } catch (error) {
         console.error('GET NATURE ERROR: ', error);
+        return res.status(500).send(error);
+    }
+};
+
+exports.placesList = async function (req, res) {
+    try {
+        const response = await Place.find();
+        return res.status(200).send(response);
+    } catch (error) {
+        console.error('GET PLACES ERROR: ', error);
         return res.status(500).send(error);
     }
 };

@@ -5,10 +5,10 @@ module.exports.createNote = async (noteData) => {
         user: noteData.user,
         title: noteData.title,
         place: noteData.place,
-        status: noteData.status,
         date: noteData.date,
         priority: noteData.priority,
         nature: noteData.nature,
+        duration: noteData.duration,
         description: noteData.description
     })
     try {
