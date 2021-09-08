@@ -19,6 +19,13 @@ module.exports.createNote = async (noteData) => {
     }
 };
 
+module.exports.filterNotes = async (filterData) => {
+    const myQuery = {}
+    try {} catch (error) {
+        console.error(error);
+    } 
+};
+
 module.exports.deleteNote = async (noteData) => {
     const myQuery = { user: noteData.user, title: noteData.title, date: noteData.date, description: noteData.description }
     try {
@@ -37,4 +44,4 @@ module.exports.updateNote = async (noteData) => {
     } catch (error) {
         console.error(error)
     }
-}
+};

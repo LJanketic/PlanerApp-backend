@@ -11,6 +11,17 @@ exports.noteList = async function(req, res) {
     }
 };
 
+exports.noteFilter = async function(req, res) {
+    const requestData = req.body
+    try {
+        const response = await noteMethods.filterNotes(req.body);
+        return res.status(200).send(response);
+    } catch (error) {
+        console.error('FILTER NOTES ERROR: ', error);
+        return res.status(500).send(error);
+    }
+};
+
 exports.createNote = async function(req, res) {
     try {
         const response = await noteMethods.createNote(req.body);

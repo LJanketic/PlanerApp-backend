@@ -5,8 +5,13 @@ var router = express.Router();
 var note_controller = require('../controllers/noteController');
 
 router.get('/', note_controller.noteList);
+// TODO
+// router.post('/filter', note_controller.filterNotes);
+
 router.post('/create', note_controller.createNote);
+
 router.delete('/delete', note_controller.deleteNote);
+
 router.post('/update', note_controller.updateNote);
 
 module.exports = router;
