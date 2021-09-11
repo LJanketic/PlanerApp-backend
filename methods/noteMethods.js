@@ -21,6 +21,9 @@ module.exports.createNote = async (noteData) => {
 
 module.exports.filterNotes = async (filterData) => {
     const myQuery = {}
+    if (filterData.user && filterData.user !== null) {
+        myQuery.user = filterData.user
+    }
     if (filterData.duration && filterData.duration !== null) {
         myQuery.duration = filterData.duration
     }
