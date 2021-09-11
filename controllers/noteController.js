@@ -12,7 +12,6 @@ exports.noteList = async function(req, res) {
 };
 
 exports.noteFilter = async function(req, res) {
-    const requestData = req.body
     try {
         const response = await noteMethods.filterNotes(req.body);
         return res.status(200).send(response);

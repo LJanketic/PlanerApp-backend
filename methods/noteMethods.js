@@ -21,7 +21,23 @@ module.exports.createNote = async (noteData) => {
 
 module.exports.filterNotes = async (filterData) => {
     const myQuery = {}
-    try {} catch (error) {
+    if (filterData.duration && filterData.duration !== null) {
+        myQuery.duration = filterData.duration
+    }
+    if (filterData.nature && filterData.nature !== null) {
+        myQuery.nature = filterData.nature
+    }
+    if (filterData.place && filterData.place !== null) {
+        myQuery.place = filterData.place
+    }
+    if (filterData.priority && filterData.priority !== null) {
+        myQuery.priority = filterData.priority
+    }
+    try {
+        const result = await Note.find(myQuery)
+        console.log(result)
+        return result
+    } catch (error) {
         console.error(error);
     } 
 };
