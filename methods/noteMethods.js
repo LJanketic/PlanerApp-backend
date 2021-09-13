@@ -60,6 +60,7 @@ module.exports.updateNote = async (noteData) => {
     const newValues = { $set: { user: noteData.user, title: noteData.title, place: noteData.place, status: noteData.status, date: noteData.date, priority: noteData.priority, nature: noteData.nature, description: noteData.description } }
     try {
         await Note.updateOne(myQuery, newValues)
+        return 'UPDATE OK'
     } catch (error) {
         console.error(error)
     }
