@@ -21,6 +21,16 @@ exports.noteFilter = async function(req, res) {
     }
 };
 
+exports.filterNotesByDate = async function(req, res) {
+    try {
+        const response = await noteMethods.filterNotesByDate(req.body);
+        return res.status(200).send(response);
+    } catch (error) {
+        console.error('FILTER NOTES BY DATE ERROR: ', error);
+        return res.status(500).send(error);
+    }
+}
+
 exports.createNote = async function(req, res) {
     try {
         const response = await noteMethods.createNote(req.body);

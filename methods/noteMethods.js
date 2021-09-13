@@ -38,11 +38,21 @@ module.exports.filterNotes = async (filterData) => {
     }
     try {
         const result = await Note.find(myQuery)
-        console.log(result)
         return result
     } catch (error) {
         console.error(error);
     } 
+};
+module.exports.filterNotesByDate = async (filterData) => {
+    console.log('!!!!!!!!!!!!!!!!', filterData.date)
+    try {
+        const result = await Note.find({
+            date: filterData.date
+        })
+        return result
+    } catch (error) {
+        console.error(error)
+    }
 };
 
 module.exports.deleteNote = async (noteData) => {
