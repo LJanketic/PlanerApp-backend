@@ -6,6 +6,7 @@ module.exports.createNote = async (noteData) => {
         title: noteData.title,
         place: noteData.place,
         date: noteData.date,
+        dateInString: noteData.dateInString,
         priority: noteData.priority,
         nature: noteData.nature,
         duration: noteData.duration,
