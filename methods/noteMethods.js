@@ -38,18 +38,17 @@ module.exports.filterNotes = async (filterData) => {
         myQuery.priority = filterData.priority
     }
     try {
-        const result = await Note.find(myQuery)
+        const result = await Note.find(myQuery).sort({date: 'asc'})
         return result
     } catch (error) {
         console.error(error);
     } 
 };
 module.exports.filterNotesByDate = async (filterData) => {
-    console.log('!!!!!!!!!!!!!!!!', filterData.date)
     try {
         const result = await Note.find({
             dateInString: filterData.date
-        })
+        }).sort({date: 'asc'})
         return result
     } catch (error) {
         console.error(error)
