@@ -48,7 +48,7 @@ module.exports.filterNotesByDate = async (filterData) => {
     console.log('!!!!!!!!!!!!!!!!', filterData.date)
     try {
         const result = await Note.find({
-            date: filterData.date
+            dateInString: filterData.date
         })
         return result
     } catch (error) {
