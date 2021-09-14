@@ -47,6 +47,7 @@ module.exports.filterNotes = async (filterData) => {
 module.exports.filterNotesByDate = async (filterData) => {
     try {
         const result = await Note.find({
+            user: filterData.user,
             dateInString: filterData.date
         }).sort({date: 'asc'})
         return result
