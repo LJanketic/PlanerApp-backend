@@ -31,7 +31,7 @@ const allowedOrigins = ['http://localhost:3000']
 //Setting up mongoose selection
 var mongoose = require('mongoose');
 // ADD MONGODB LINK HERE BEFORE THIS APP CAN WORK
-var mongoDB = 'mongodb+srv://admin:admin@planercluster.hbobd.mongodb.net/planer_db?retryWrites=true&w=majority';
+var mongoDB = '';
 
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection;
